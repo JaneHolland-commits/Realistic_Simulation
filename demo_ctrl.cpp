@@ -1,21 +1,3 @@
-/*
- * KilobotGA
- * Copyright (C) 2017 Marcos Cardinot <mcardinot@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 #include "demo_ctrl.h"
 
 #include <argos3/core/utility/configuration/argos_configuration.h>
@@ -87,29 +69,8 @@ void DemoCtrl::ControlStep()
 
     if (in.size()) {
 
- 	//for (uint32_t i = 1; i <= in.size(); ++i) {
-
-  	//	uint32_t d = in[i].Distance.high_gain;
-
-		//jesusPls = distance/(in.size()+1);
-
-       		//m_fPerformance += calcPerformance(getLUTIndex(d));
-
-	//	distance += d;
-	//}
-
-	//distance /= in.size();
-	//float inverse = pow(avgD, -1);
-
-	/*std::ofstream calc;
-	calc.open("calc.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-        calc << "size: " << in.size() << " amount of edges: " << count << "\n";
-	calc.close(); */
-
-	//uint32_t cluster_size = in.size()+1;
-
+ 	// if Kilobot senses another robot
 	distance =  1;
-
 
 	m_fPerformance += calcPerformance(getLUTIndex(distance));
    
@@ -204,12 +165,6 @@ size_t DemoCtrl::getLUTIndex(uint8_t distance) const
 
 float DemoCtrl::calcPerformance(uint8_t distance) const
 {
-	 //LOGERR << cluster_size << "\n";
-   
-   // float x = distance+1; // index might be 0, so let's sum 1
-
-   // float test1 = pow(x, -ALPHA);
-   // return pow(cluster_size, test1);
 
    return distance;
 
